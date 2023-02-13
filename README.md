@@ -28,7 +28,7 @@ Endpoint stores the pageview in a **_Pageviews_** table.
 For data validation, checks have been added to make sure that the `fingerprint` and `created_at` fields are not null. These fields are used in linking a pageviews back to an event or user.
 
 Schema Info:
-  The domain from the `referrer_url` has been parsed and added to the table. Additionally, if a pageview comes from a marketing campaign, the `utm` fields are parsed from the url and added to the table. These additional fields provide more information for attribution analysis. The endpoint also checks for duplicates, in case the same webhook is fired twice.
+The domain from the `referrer_url` has been parsed and added to the table. Additionally, if a pageview comes from a marketing campaign, the `utm` fields are parsed from the url and added to the table. These additional fields provide more information for attribution analysis. The endpoint also checks for duplicates, in case the same webhook is fired twice.
 
 ### Event Endpoint
 
@@ -36,7 +36,7 @@ The event endpoint has been implemented similarly, it creates an Event in the **
 
 Checks have been added to make sure all fields are present. Maybe a check for `user_id` could be removed if we are tracking future events where there isn’t a `user_id` yet, but for our MVP I assumed that all events will have a `user_id`. The endpoint also checks for duplicates in case the same webhook is fired twice.
 
-### Signup attribution endpoint
+### Signup Attribution Endpoint
 
 This endpoint aims to provide signup attribution details for a user. The endpoint finds the pageviews that led to a signup by querying all pageviews for a user's fingerprint before the date of their signup event. It then performs some analysis on the pageviews
 
