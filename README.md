@@ -27,7 +27,7 @@ Endpoint stores the pageview in a **_Pageviews_** table.
 
 For data validation, checks have been added to make sure that the `fingerprint` and `created_at` fields are not null. These fields are used in linking a pageviews back to an event or user.
 
-Schema Info
+Schema Info:
   The domain from the `referrer_url` has been parsed and added to the table. Additionally, if a pageview comes from a marketing campaign, the `utm` fields are parsed from the url and added to the table. These additional fields provide more information for attribution analysis. The endpoint also checks for duplicates, in case the same webhook is fired twice.
 
 ### Event Endpoint
